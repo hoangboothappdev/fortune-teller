@@ -10,4 +10,16 @@ class NumbersController < ApplicationController
 
     render({ :template => "lottery_stuff/woohoo.html.erb"})
   end 
+
+  def losers
+    @unlucky_array = Array.new
+
+    5.times do 
+      unlucky_num = rand (1...100)
+      @unlucky_array.push(unlucky_num)
+    end
+    render ({ :template => "lottery_stuff/unlucky_num.html.erb"})
+
+  end
+  
 end
